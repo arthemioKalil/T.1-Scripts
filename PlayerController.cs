@@ -93,6 +93,14 @@ public class PlayerController : MonoBehaviour
         moveInputX = player.GetAxis("Move Horizontal");
         moveInputY = player.GetAxis("Move Vertical");
         
+        
+        // -- PROBLEM --
+        Rewired.AxisCalibration.deadZone 
+        //--------
+        //Type name "deadZone" does not exist in type "AxisCalibration" [Assembly-CSharp]csharp(CS0426)
+        //float AxisCalibration.deadZone { get; set; }
+        //--------
+        
         rb.velocity = new Vector2(moveInputX * speed, rb.velocity.y);
 
         isGrouded = Physics2D.OverlapCircle(feetPos.position, checkRadius, WIsGround);
